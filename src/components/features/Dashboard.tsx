@@ -351,7 +351,7 @@ export default function Dashboard() {
                                         borderRadius: '12px',
                                         fontSize: '12px',
                                     }}
-                                    formatter={(value: number) => [formatCurrency(value), 'Maliyet']}
+                                    formatter={(value: any) => [formatCurrency(Number(value)), 'Maliyet']}
                                 />
                                 <Area
                                     type="monotone"
@@ -395,8 +395,8 @@ export default function Dashboard() {
                             useStore.getState().recommendations.slice(0, 4).map((rec, i) => (
                                 <div key={i} className="flex items-start gap-3 p-3 rounded-xl bg-accent/50 border border-border/50">
                                     <div className={`w-2 h-2 rounded-full mt-1.5 flex-shrink-0 ${rec.priority === 'critical' ? 'bg-red-500 animate-pulse-soft' :
-                                            rec.priority === 'high' ? 'bg-orange-500' :
-                                                rec.priority === 'medium' ? 'bg-yellow-500' : 'bg-green-500'
+                                        rec.priority === 'high' ? 'bg-orange-500' :
+                                            rec.priority === 'medium' ? 'bg-yellow-500' : 'bg-green-500'
                                         }`} />
                                     <div>
                                         <p className="text-xs font-medium">{rec.title}</p>
